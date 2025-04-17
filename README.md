@@ -216,10 +216,20 @@ Visit Prometheus → Status > Targets
 
 Look for mongodb-exporter job
 
-Ensure status is UP
+Ensure status is `UP` and added the reference screenshot.
+
+![alt text](prometheus-with-mongodb-app-deploy.png)
 
 📈 Check in Grafana
 
 Go to http://localhost:3000
 
 Click on Dashboards --> Kubernetes / Compute Resources / Pod --> default namepscae --> check mongodb deployments, pods etc.
+
+Added reference Scrennshot:
+
+![alt text](Grafana-dashboard-after-deploying-mongodb.png)
+
+`Reference Link to Chart:`        https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
+
+`Reference to Mongodb Exporter:`  https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-mongodb-exporter
