@@ -212,9 +212,9 @@ Confirms exporter is working and exposing metrics
 
 📊 Check in Prometheus
 
-Visit Prometheus → Status > Targets
+Visit Prometheus → Status > Target health
 
-Look for mongodb-exporter job
+Look for `mongodb servicemonitor` for prometheus
 
 Ensure status is `UP` and added the reference screenshot.
 
@@ -233,3 +233,5 @@ Added reference Scrennshot:
 `Reference Link to Chart:`        https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 
 `Reference to Mongodb Exporter:`  https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-mongodb-exporter
+
+`Prometheus Links to Learn:`      https://github.com/warpnet/awesome-prometheus
