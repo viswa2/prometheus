@@ -114,7 +114,7 @@ Prometheus is deployed in the cluster.
 
 ✅ Users query data via PromQL from the web UI or Grafana dashboards.
 
-## Monitoring with Prometheus, Grafana & MongoDB Exporter in Kubernetes ##
+# Monitoring with Prometheus, Grafana & MongoDB Exporter in Kubernetes #
 
 ![alt text](<Rough-Mongodb-Application with Prometheus-1.png>)
 
@@ -142,6 +142,8 @@ Node Exporter
 
 Alertmanager
 
+`Reference Link to Prometheus Chart:` https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
+
 3. Explore Deployed Resources
 
 kubectl get pods,svc,cm,secret -n default | grep prometheus
@@ -166,7 +168,7 @@ Login details are by default providing prometheus. If you want to cutsomize user
 
 Access: http://localhost:9090
 
-# 🛠️ Deploy & Monitor a Sample Application #
+## 🛠️ Deploy & Monitor a Sample Application ##
 
 6. Deploy MongoDB Without Exporter
 
@@ -174,7 +176,7 @@ kubectl apply -f mongodb-without-exporter.yaml
 
 `Note:` This deploys MongoDB but does not expose metrics yet.
 
-# Install MongoDB Exporter #
+## Install MongoDB Exporter ##
 
 7. View Exporter Defaults
 
@@ -190,7 +192,9 @@ helm install mongodb-exporter prometheus-community/prometheus-mongodb-exporter -
 
 kubectl get pods,svc,servicemonitor -l app.kubernetes.io/name=mongodb-exporter
 
-# 📡 How ServiceMonitor Works #
+`Reference to Mongodb Exporter:`  https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-mongodb-exporter
+
+## 📡 How ServiceMonitor Works ##
 
 ✅ Prometheus Operator automatically watches ServiceMonitors with label release: prometheus.
 
@@ -200,7 +204,7 @@ kubectl get pods,svc,servicemonitor -l app.kubernetes.io/name=mongodb-exporter
 
 ✅ Those metrics get visualized in `Prometheus and Grafana`.
 
-# Test MongoDB Exporter Manually #
+## Test MongoDB Exporter Manually ##
 
 kubectl port-forward svc/mongodb-exporter-prometheus-mongodb-exporter 9216
 
@@ -230,8 +234,4 @@ Added reference Scrennshot:
 
 ![alt text](Grafana-dashboard-after-deploying-mongodb.png)
 
-`Reference Link to Chart:`        https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
-
-`Reference to Mongodb Exporter:`  https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-mongodb-exporter
-
-`Prometheus Links to Learn:`      https://github.com/warpnet/awesome-prometheus
+`Prometheus Links to Learn:` https://github.com/warpnet/awesome-prometheus
