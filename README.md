@@ -196,9 +196,30 @@ kubectl get pods,svc,servicemonitor -l app.kubernetes.io/name=mongodb-exporter
 
 ## 📡 How ServiceMonitor Works ##
 
-✅ Prometheus Operator automatically watches ServiceMonitors with label release: prometheus.
+✅ You installed Prometheus via kube-prometheus-stack or Helm chart.
 
-✅ ServiceMonitor selects a Service by matching metadata.labels.
+✅ This installation includes a Prometheus instance and Prometheus Operator.
+
+✅ Prometheus Operator automatically watches ServiceMonitors with label `release: prometheus`.
+
+✅ If we check the prometheus service(SVC) we have a label called `release: prometheus` we are matching the same label with mongodb-exporter while installing.
+
+![alt text](Prometheus_Service.png)
+
+🎯 Why the release: prometheus label matters:
+
+`When you install Prometheus using Helm like:`
+
+helm install prometheus prometheus-community/kube-prometheus-stack
+
+It typically sets the release label to prometheus. Then in your ServiceMonitor, this label is required, like:
+
+```bash
+serviceMonitor:
+  enabled: true
+  additionalLabels:
+    release: prometheus
+```    
 
 ✅ It scrapes metrics from /metrics endpoint (defaults to port 9216 for MongoDB exporter).
 
