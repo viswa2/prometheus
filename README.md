@@ -220,6 +220,11 @@ serviceMonitor:
   additionalLabels:
     release: prometheus
 ```    
+## Verification ##
+
+`Note:` Prometheus service(svc) label `release: prometheus` matches with the mongodb-exporter servicemonitor, attached the screenshot as below for reference.
+
+![alt text](Mongodb-exporter-servicemonitor.png)
 
 ✅ It scrapes metrics from /metrics endpoint (defaults to port 9216 for MongoDB exporter).
 
